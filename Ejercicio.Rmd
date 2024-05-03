@@ -1,0 +1,355 @@
+---
+title: "Ej_Título"
+subtitle: 'Ej_Subtítulo'
+author: 
+- \textit{Nombre y Apellidos {\small(Correo que se quiera)},}
+output:
+  pdf_document: 
+      latex_engine: xelatex
+  html_document: default
+---
+
+\centering
+\raggedright
+\newpage
+\tableofcontents
+\newpage
+
+
+La configuración anterior del YAML se puede cambiar de muchas maneras. El subtítulo se puede quitar, el autor se puede poner de manera más simple seguido de author:, etc. Uso xelatex porque es el motor que permite meter carcateres raros (que en simulación a veces aparecen).
+
+Por último, el centering y las lineas siguientes son para configurar un índice y que esté bien posicionado.
+
+```{r}
+
+a <- "Esto es un chunk y permite ejecutar código"
+print(a)
+b <- "Se puede crear con ctrl+alt+i o crearlo manualmente o en insert a new code a la izquierda de Run"
+print(b)
+
+```
+
+Como características más básicas de los chunk tenemos las siguiente:
+
+```{r eval=FALSE}
+# Para que no se ejecute el bloque de código
+```
+
+
+```{r results='hide'}
+# Para que no muestre los resultados
+```
+
+Todo el texto fuera de los chunks es texto normal.
+
+\
+
+```{r eval=FALSE, echo=FALSE, results='hold'}
+# Así se ponen varias características... Además echo=False sirve para ocultar el código 
+# pero imprimir el resultado (con results=hold todos los resultados se mostraran al final)
+```
+
+
+## 1. Nivel básico
+
+```{r eval=FALSE, echo=FALSE, results='hide'}
+# Este chunk (que luego explico más adelante) ni se ejecuta, ni se ve el código, 
+# ni los resultadso
+
+# Esto -> # es para asignar títulos, a más ## se crea un subtítulo etc.
+```
+
+
+### 1.1. Formato de texto
+
+### Ejercicio 1: Escribe dos párrafos separados.
+
+En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. 
+
+Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lentejas los viernes, algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.
+
+
+### Ejercicio 2: Escribe dos párrafos separados sin espacio en medio.
+
+En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. 
+Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lentejas los viernes, algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.
+
+
+### Ejercicio 3: Escribe una frase en cursiva.
+
+*One Ring to rule them all, one Ring to find them, one Ring to bring them all, and in the darkness bind them.*
+
+
+### Ejercico 4: Escribe una frase en negrita.
+
+**Lo que es preciso es costoso y lo que es barato no es efectivo.**
+
+
+### Ejercicio 5: Escribe una frase en negrita y cursiva.
+
+***La imaginación es más importante que el conocimiento. Porque el conocimiento es limitado, mientras que la imaginación abarca el mundo.***
+
+
+### Ejercicio 6: Haz una lista no numerada.
+
+* Caso 1
+* Caso 2
+* Caso 3
+
+
+### Ejercicio 7: Añádele sub-elementos a la lista no numerada.
+
+* Caso 1
+    + Variable 1.1
+* Caso 2
+    + Variable 1.1
+    + Variable 1.2
+* Caso 3
+    + Variable 1.1
+    + Variable 1.2
+    + Variable 1.3
+    
+
+### Ejercicio 8: Haz una lista numerada.
+
+1. Caso 1
+2. Caso 2
+3. Caso 3
+
+    
+### Ejercicio 9: Añádele sub-elementos a la lista numerada.
+
+1. Caso 1
+    1. Variable 1.1
+2. Caso 2
+    1. Variable 1.1
+    2. Variable 1.2
+3. Caso 3
+    1. Variable 1.1
+    2. Variable 1.2
+    3. Variable 1.3
+
+
+### Ejercicio 10: Haz una lista numerada, añadiéndole sub-elementos, utilizando letras.
+
+a. Caso 1
+    a. Variable 1.1
+b. Caso 2
+    a. Variable 1.1
+    b. Variable 1.2
+c. Caso 3
+    a. Variable 1.1
+    b. Variable 1.2
+    c. Variable 1.3
+
+
+### Ejercicio 11: Haz una lista combinando los tipos de listas anteriores. El titulo de cada apartado debe estar en negrita, y el segundo elemento debe estar en cursiva
+
+* **Lista no numerada:**
+     + Variable 1.1
+     + *Variable 1.2*
+* **Caso numerada:**
+     1. Variable 1.1
+     2. *Variable 1.2*
+* **Caso numerada:**
+     a. Variable 1.1
+     b. *Variable 1.2*
+    
+
+
+### 1.2. Fórmulas
+
+### Ejercicio 12: Escribe una fórmula compleja.
+
+$$\phi\left(x\right)={1\over\sqrt{2\pi\sigma}} e^{\left(x -\mu\right)^2\over2\sigma^2}$$
+
+### Ejercicio 13:Escribe una fórmula compleja dentro de un texto.
+
+La fórmula: $\phi\left(x\right)={1\over\sqrt{2\pi\sigma}} e^{\left(x -\mu\right)^2\over2\sigma^2}$ corresponde a la fórmula de Euler. 
+
+
+
+### 1.3. Imágenes
+
+### Ejercicio 14: Inserta una imagen, ya sea de internet o de tu ordenador.
+
+```{r, out.width= "25%", echo=FALSE}
+knitr::include_graphics("C:/Users/Álvaro/Pictures/Saved Pictures/Bugs-Bunny.jpg")
+```
+
+
+
+### Ejercicio 15: Añádele un título a la imagen.
+
+```{r, out.width= "25%", echo=FALSE, fig.align='center'}
+knitr::include_graphics("C:/Users/Álvaro/Pictures/Saved Pictures/Bugs-Bunny.jpg")
+```
+  
+### 1.4. Tablas.
+
+### Ejercicio 16: Haz una tabla usando los datos que quieras.
+
+
+```{r echo=FALSE}
+alumnos <- 1:4
+nota <- sample(4, replace = T)
+clase <- LETTERS[1:4]
+x <- data.frame(alumnos, clase, nota)
+knitr::kable(x, "pipe", align = c("l", "c", "c")) #solo para dar un poco de forma
+
+```
+
+
+### 1.5. Código de R.
+
+### Ejercicio 17: Añade un trozo de código de R que muestre las primeras filas del dataframe mtcars.
+
+
+```{r}
+head(mtcars)
+
+```
+
+
+### Ejercicio 18: Haz un histograma de la variable hp del dataframe mtcars.
+
+```{r}
+hist(mtcars$hp)
+```
+
+\clearpage
+\newpage
+\mbox{}
+\clearpage
+\newpage
+
+
+## 2. Nivel Intermedio
+
+### 2.1 Espacios
+
+### Ejercicio 19: Deja una página en blanco entre el nivel básico y el intermedio.
+
+Hecho.
+
+
+### Ejercicio 20: Escribe dos párrafos separados por más de una línea.
+
+En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. 
+\
+\
+\
+\
+Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lentejas los viernes, algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.
+
+
+### Ejercicio 22: Escribe una frase de un color distinto al negro.
+
+\textcolor{green}{Lo que es preciso es costoso y lo que es barato no es efectivo.}
+
+
+### 2.2 Opciones de Chunk
+
+### 3.2.1 Figuras
+
+### Ejercicio 23: Vuelve a crear el histograma de variable hp del dataframe mtcars, pero sin mostrar el código.
+
+```{r echo=FALSE}
+hist(mtcars$hp)
+```
+
+
+### Ejercicio 24: Añade una opción al chunk para reducir a la mitad el tamaño del gráfico.
+
+```{r echo=FALSE, out.width="50%"}
+hist(mtcars$hp)
+```
+
+### Ejercicio 25: Añade una opción al chunk para centrar el gráfico.
+
+```{r echo=FALSE, out.width="50%", fig.align='center'}
+hist(mtcars$hp)
+```
+
+
+### 3.2.2 Imprimir código.
+
+### Ejercicio 26: Haz un código erróneo y consigue que el documento se renderice mostrando el código.
+
+```{r error=TRUE}
+error = p + p
+```
+### Ejercicio 27: Muestra un código que no se ejecute.
+
+```{r eval=FALSE}
+error = p + p
+```
+### Ejercicio 28: Consigue que el siguiente código no muestre un warning, pero que sí se ejecute.
+
+```{r warning=FALSE}
+x <- 1:3
+y <- c(1, 2)
+resultado <- x + y
+resultado
+
+```
+
+
+### Ejercicio 29: Haz que el siguiente código se ejecute, pero que no se muestre ni que muestre ninguna salida.
+
+```{r warning=FALSE, results='hide'}
+x <- 1:3
+y <- c(1, 2)
+resultado <- x + y
+salida<-capture.output(print(resultado))
+salida
+```
+
+\twocolumn[{%
+  \raggedright
+  \large
+  \bfseries 3. Nivel Avanzado \\[1.5em]
+            3.1. Doble Columna \\[1.0em]
+            Ejercicio 30: Haz dos columnas de texto con un párrafo en cada una. \\[1.0em]
+
+  }]
+
+En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.
+\newpage
+Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lentejas los viernes, algún palomino de añadidura los domingos, consumían las tres
+partes de su hacienda.
+
+
+\onecolumn
+
+### 3.2 Automatizar documentos
+
+### Ejercicio 31: Haz un código de R que genere varios documentos con la frase “este es el documento [i]”. En el que [i] sea el número del documento 
+
+
+
+```{r echo=FALSE, results='hide', message=FALSE}
+generate_rmd <- function(i) {
+  rmarkdown::render(
+    input = "Input.Rmd",
+    output_file = paste0("este es el documento [",i, "].html"),
+    params = list(i = i)  
+  )
+}
+for (i in 1:5) {
+  generate_rmd(i)
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
